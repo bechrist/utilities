@@ -6,7 +6,7 @@ All Rights reserved.
 See file COPYRIGHT for details.
 
 This file is part of :code:`bechrist`'s :code:`utilities`. For more information see
-https://github.com/bechrist/utitlies
+https://github.com/bechrist/utilities
 
 :code:`utilities` is free software; you can redistribute it and/or modify it under the
 terms of the GNU General Public License (as published by the Free
@@ -21,6 +21,14 @@ import sys
 
 # %% 
 def mpi_print(msg: str, comm: MPI.Intracomm = MPI.COMM_WORLD):
+    """Prints from :code:`MPI` rank `0`
+
+    :param msg: Message
+    :type msg: str
+
+    :param comm: MPI communicator, defaults to :code:`MPI.COMM_WORLD`
+    :type comm: MPI.Intracomm, optional
+    """
     if comm.rank == 0:
         print(f"Rank {comm.rank} | {msg}")
         sys.stdout.flush()

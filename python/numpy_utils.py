@@ -6,7 +6,7 @@ All Rights reserved.
 See file COPYRIGHT for details.
 
 This file is part of :code:`bechrist`'s :code:`utilities`. For more information see
-https://github.com/bechrist/utitlies
+https://github.com/bechrist/utilities
 
 :code:`utilities` is free software; you can redistribute it and/or modify it under the
 terms of the GNU General Public License (as published by the Free
@@ -26,6 +26,8 @@ import typing as typ
 class LabeledNDArray(np.ndarray):
 	""":code:`numpy.ndarray` subclass that contains named labels corresponding to array items.
 
+	[1] https://numpy.org/doc/stable/user/basics.subclassing.html
+
 	:param array: Array
 	:type array: numpy.typing.ArrayLike
 
@@ -36,15 +38,12 @@ class LabeledNDArray(np.ndarray):
 			array: npt.ArrayLike, 
 			label: dict[str, int | typ.Sequence[int] | slice] | None = None) \
 			-> LabeledNDArray:
-		"""See: https://numpy.org/doc/stable/user/basics.subclassing.html"""
 		obj = np.asarray(array).view(cls)
 		obj.label = {} if label is None else label
 		return obj
 
 	def __array_finalize__(self, obj: np.ndarray | None):
-		"""See: https://numpy.org/doc/stable/user/basics.subclassing.html"""
 		if obj is None: return
-
 		self.label = getattr(obj, 'label', {})
 
 	def __getitem__(self, idx: int | typ.Sequence[int] | slice | str) -> np.ndarray | typ.Any: 

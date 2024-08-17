@@ -6,14 +6,13 @@ All Rights reserved.
 See file COPYRIGHT for details.
 
 This file is part of :code:`bechrist`'s :code:`utilities`. For more information see
-https://github.com/bechrist/utitlies
+https://github.com/bechrist/utilities
 
 :code:`utilities` is free software; you can redistribute it and/or modify it under the
 terms of the GNU General Public License (as published by the Free
 Software Foundation) version 3.0 dated June 2007.
 """
-__authors__ = ['Blake Christierson, UT Austin <bechristierson@utexas.edu>',
-               'Jack Walton, <jwalton3141@gmail.com>']
+__authors__ = ['Blake Christierson, UT Austin <bechristierson@utexas.edu>']
 __all__ = ['set_fig_size']
 
 
@@ -21,7 +20,7 @@ __all__ = ['set_fig_size']
 def set_fig_size(width, fraction=1, subplots=(1, 1)):
     """Set figure dimensions to avoid scaling in LaTeX. 
     
-    Refer to: https://jwalton.info/Embed-Publication-Matplotlib-Latex/
+    [1] https://jwalton.info/Embed-Publication-Matplotlib-Latex/
 
     :param width: Document width in points, or string of predined document type
     :type width: float or string

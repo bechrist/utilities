@@ -6,29 +6,19 @@ All Rights reserved.
 See file COPYRIGHT for details.
 
 This file is part of :code:`bechrist`'s :code:`utilities`. For more information see
-https://github.com/bechrist/utitlies
+https://github.com/bechrist/utilities
 
 :code:`utilities` is free software; you can redistribute it and/or modify it under the
 terms of the GNU General Public License (as published by the Free
 Software Foundation) version 3.0 dated June 2007.
 """
 __authors__ = ['Blake Christierson, UT Austin <bechristierson@utexas.edu>']
-__all__ = ['_Decorator', 'conditional_decorator',
-           'profile_timing', 'init_profile_timing']  
+__all__ = ['profile_timing', 'init_profile_timing']  
 
 from time import time
 import typing as typ
 
-
-# %%
-_Decorator = typ.Callable[[typ.Callable], typ.Callable]
-
-
-def conditional_decorator(dec: _Decorator, cond: bool) -> typ.Callable:
-    def __decorator(func):
-        return dec(func) if cond else func
-    return __decorator
-
+from .stdlib_utils import _Decorator, conditional_decorator
 
 # %%
 def profile_timing(func: typ.Callable) -> typ.Callable:
